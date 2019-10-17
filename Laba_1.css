@@ -1,0 +1,99 @@
+body {
+  background-color: white;
+  background-image: linear-gradient(90deg, rgba(0,100,100,.5) 50%, transparent 50%),
+  linear-gradient(rgba(0,100,100,.5) 50%, transparent 50%);
+  background-size: 50px 50px;
+}
+
+.flex > div {
+  width: 250px;
+  margin: 10px auto;
+  padding: 15px 20px;
+  background: #f5f5f5;
+  border-radius: 10px;
+  position: relative;
+}
+
+.items:focus {
+	outline: none;
+    box-shadow: 0 0 10px red;
+}
+
+
+
+.plit {
+	position: absolute;
+    padding: 15px 0px 0 0;
+	width: 100%;
+	height: 96%;
+	background: #fff;
+	top: 0;
+	left: 100%;
+    border-radius: 10px;
+    opacity: 0;
+}
+
+.plit {
+	text-align: right;
+}
+
+.plit div {	
+	padding-right: 10px;
+}
+
+.plit .back {
+	display: none;
+}
+
+.items .plit {
+    transition: left ease 0.5s;
+}
+
+.items .plit_act {
+	display: block;
+	left: 0%;
+	opacity: 1;
+}
+
+.butmath {
+	width: 50px;
+	height: 50px;
+	background: #000;
+	position: absolute;
+	top: 22%;
+	right: 0;
+	border-radius: 40px 6px 6px 40px;
+	cursor: pointer;
+}
+
+.back {
+	width: 50px;
+	height: 50px;
+	background: #000;
+	position: absolute;
+	top: 22%;
+	left: 0;
+	border-radius: 6px 40px 40px 6px;
+	cursor: pointer;
+}
+
+.flex {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-justify-content: space-around;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    -webkit-align-content: flex-start;
+    -ms-flex-line-pack: start;
+    align-content: flex-start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    }
