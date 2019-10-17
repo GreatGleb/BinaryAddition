@@ -16,26 +16,23 @@ body {
 }
 
 .items:focus {
-	outline: none;
+    outline: none;
     box-shadow: 0 0 10px red;
 }
 
 
 
 .plit {
-	position: absolute;
+    position: absolute;
     padding: 15px 0px 0 0;
-	width: 100%;
-	height: 96%;
-	background: #fff;
-	top: 0;
-	left: 100%;
+    width: 100%;
+    height: 96%;
+    background: #fff;
+    top: 0;
+    left: 100%;
     border-radius: 10px;
     opacity: 0;
-}
-
-.plit {
-	text-align: right;
+    text-align: right;
 }
 
 .plit div {	
