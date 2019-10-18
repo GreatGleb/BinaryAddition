@@ -4,7 +4,6 @@ body {
   linear-gradient(rgba(0,100,100,.5) 50%, transparent 50%);
   background-size: 50px 50px;
   overflow-x: hidden;
-  color: blue;
 }
 
 .flex > div {
