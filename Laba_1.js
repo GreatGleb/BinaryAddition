@@ -8,7 +8,7 @@ var n1 = '0.010010', n2 = '0.010111',
 	n15 = '1.100101', n16 = '1.000110';
 
 var arr3  = [
-  [7,7,89,9],
+  [],
   [],
   [],
   [],
@@ -68,7 +68,7 @@ function Addition (n1, n2) {
 				str = str+"Разряд "+i+" Складываем "+arr1[len1-i]+" и "+arr2[len1-i]+"\nПолучаем: "+ost[len1-i]+arr3[len1-i]+" Остаток: "+ost[len1-i]+"<br>";
 			} else if (i>(len1-1)) {					
 				//console.log("Последний остаток: "+ost[len1-i+1]);
-				str = str+"Последний остаток: "+ost[len1-i+1]+"<br>";
+				str = str+"Складываем знаки: "+ost[len1-i+1]+", "+arr1[len1-i]+" и "+arr2[len1-i]+"<br>";
 				} else {
 				//console.log("Разряд "+i+" Складываем "+ost[len1-i+1]+", "+arr1[len1-i]+" и "+arr2[len1-i]+"\nПолучаем: "+ost[len1-i]+arr3[len1-i]+" Остаток: "+ost[len1-i]);
 				str = str+"Разряд "+i+" Складываем "+ost[len1-i+1]+", "+arr1[len1-i]+" и "+arr2[len1-i]+"\nПолучаем: "+ost[len1-i]+arr3[len1-i]+" Остаток: "+ost[len1-i]+"<br>";
@@ -77,13 +77,13 @@ function Addition (n1, n2) {
 		if(ost[0]==ost[1]) {
 			//console.log("\nПереполнения не было.");
 			str = str+"Переполнения не было."+"<br>";
+			arr3.splice(1,0,".");
+			var result = arr3.join("");
+			str = str+"Результат сложения: "+result+"</p>";
 		} else {
 			//console.log("\nБыло переполнение.");
 			str = str+'<p style="color: red ">Было переполнение.</p>';
 		}
-			arr3.splice(1,0,".");
-			var result = arr3.join("");
-			str = str+"Результат сложения: "+result+"</p>";
 
 		return {
 		    addition: function() {
@@ -151,7 +151,7 @@ console.log(nom)
 				str = str+"Разряд "+i+" Складываем "+arr1[len1-i]+" и "+arr2[len1-i]+"<br>Получаем: "+ost[len1-i]+arr3[nom][len1-i]+" Остаток: "+ost[len1-i]+"<br>";
 			} else if (i>(len1-1)) {					
 				//console.log("Последний остаток: "+ost[len1-i+1]);
-				str = str+"Последний остаток: "+ost[len1-i+1]+"<br>";
+				str = str+"Складываем знаки: "+ost[len1-i+1]+", "+arr1[len1-i]+" и "+arr2[len1-i]+"<br>";
 				} else {
 				//console.log("Разряд "+i+" Складываем "+ost[len1-i+1]+", "+arr1[len1-i]+" и "+arr2[len1-i]+"\nПолучаем: "+ost[len1-i]+arr3[nom][len1-i]+" Остаток: "+ost[len1-i]);
 				str = str+"Разряд "+i+" Складываем "+ost[len1-i+1]+", "+arr1[len1-i]+" и "+arr2[len1-i]+"<br>Получаем: "+ost[len1-i]+arr3[nom][len1-i]+" Остаток: "+ost[len1-i]+"<br>";
@@ -161,13 +161,13 @@ console.log(nom)
 			if(ost[0]==ost[1]) {
 				//console.log("\nПереполнения не было.");
 				str = str+"Переполнения не было."+"<br>";
+				arr3[nom].splice(1,0,".");
+				var result = arr3[nom].join("");
+				str = str+"Результат сложения: "+result+"</div>";
 			} else {
 				//console.log("\nБыло переполнение.");
 				str = str+'<p style="color: red ">Было переполнение.</p>';
 			}
-				arr3[nom].splice(1,0,".");
-				var result = arr3[nom].join("");
-				str = str+"Результат сложения: "+result+"</div>";
 		}
 		return {
 		    addition: function() {
@@ -188,11 +188,9 @@ console.log(nom)
 }
 
 var m = document.getElementsByClassName("items");
-m[0].innerHTML = Addition(n1, n2).result();
-m[1].innerHTML = Addition(n3, n4).result();
-m[2].innerHTML = Addition(n5, n6).result();
-m[3].innerHTML = Addition(n7, n8).result();
-
+m[1].innerHTML = Addition(n1, n2).result();
+m[2].innerHTML = Addition(n3, n4).result();
+m[3].innerHTML = Addition(n5, n6).result();
 m[4].innerHTML = Addition(n9, n10).result();
 m[5].innerHTML = Addition(n11, n12).result();
 m[6].innerHTML = Addition(n13, n14).result();
@@ -247,23 +245,20 @@ let plit8 = document.createElement('div');
 let back8 = document.createElement('div');
   	back8.className = "back";
 
- m[0].append(div); m[0].append(plit);
- m[0].getElementsByClassName("plit")[0].append(back);
- m[1].append(div2); m[1].append(plit2);
- m[1].getElementsByClassName("plit")[0].append(back2);
- m[2].append(div3); m[2].append(plit3);
- m[2].getElementsByClassName("plit")[0].append(back3);
- m[3].append(div4); m[3].append(plit4);
- m[3].getElementsByClassName("plit")[0].append(back4);
- m[4].append(div5); m[4].append(plit5);
- m[4].getElementsByClassName("plit")[0].append(back5);
- m[5].append(div6); m[5].append(plit6);
- m[5].getElementsByClassName("plit")[0].append(back6);
- m[6].append(div7); m[6].append(plit7);
- m[6].getElementsByClassName("plit")[0].append(back7);
- m[7].append(div8); m[7].append(plit8);
- m[7].getElementsByClassName("plit")[0].append(back8);
-
+ m[1].append(div); m[1].append(plit);
+ m[1].getElementsByClassName("plit")[0].append(back);
+ m[2].append(div2); m[2].append(plit2);
+ m[2].getElementsByClassName("plit")[0].append(back2);
+ m[3].append(div3); m[3].append(plit3);
+ m[3].getElementsByClassName("plit")[0].append(back3);
+ m[4].append(div4); m[4].append(plit4);
+ m[4].getElementsByClassName("plit")[0].append(back4);
+ m[5].append(div5); m[5].append(plit5);
+ m[5].getElementsByClassName("plit")[0].append(back5);
+ m[6].append(div6); m[6].append(plit6);
+ m[6].getElementsByClassName("plit")[0].append(back6);
+ m[7].append(div7); m[7].append(plit7);
+ m[7].getElementsByClassName("plit")[0].append(back7);
 var i = 2, It = [
   [],
   [],
@@ -334,7 +329,6 @@ function Press (event) {
 	el = It[nom][It[nom].length - 1];
 	arr[nom].push(el);
 	var last = arr[nom][arr[nom].length-1];
-	console.log(last)
 	var plit = event.path[0].getElementsByClassName("plit")[0];
 	  if(getComputedStyle(plit.getElementsByClassName("back")[0], null).display != 'none') {
 
@@ -370,12 +364,32 @@ function Sobrat(nom, n1, n2) {
 	m[nom].addEventListener("click", foc);
 }
 
-Sobrat(0, n1, n2);
-Sobrat(1, n3, n4);
-Sobrat(2, n5, n6);
-Sobrat(3, n7, n8);
+Sobrat(1, n1, n2);
+Sobrat(2, n3, n4);
+Sobrat(3, n5, n6);
 Sobrat(4, n9, n10);
 Sobrat(5, n11, n12);
 Sobrat(6, n13, n14);
 Sobrat(7, n15, n16);
 
+function Count() { 
+	var text = document.getElementsByTagName("input");
+	var val1 = text[0].value;
+	var val2 = text[1].value;
+
+	m[0].innerHTML = Addition(val1, val2).result();
+
+	let div = document.createElement('div');
+	  	div.className = "butmath";
+	let plit = document.createElement('div');
+	  	plit.className = "plit";
+	let back = document.createElement('div');
+	  	back.className = "back";
+	m[0].append(div); m[0].append(plit);
+	m[0].getElementsByClassName("plit")[0].append(back);
+	It.push();
+	arr.push();
+	arrN.unshift([val1, val2]);
+
+	Sobrat(0, val1, val2);
+}
