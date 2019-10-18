@@ -10,7 +10,13 @@
 </head>
 <body>
 	<div class="flex">
-	  <div class="items" tabindex="0" id="1"></div>
+	  <div class="items" tabindex="0" id="1">
+		  <form action="/action_page.php">
+			Первое число (дк): <input type="text" name="FirstName" placeholder="Введите число в дк"><br>
+			Второе число (дк): <input type="text" name="LastName" placeholder="Введите число в дк"><br>
+			 <button type='button' onclick="Count()">Посчитать</button>  
+			</form>
+	  </div>
 	  <div class="items" tabindex="0" id="2"></div>
 	  <div class="items" tabindex="0" id="3"></div>
 	  <div class="items" tabindex="0" id="4"></div>
