@@ -334,7 +334,7 @@ function Press (event) {
 
 		  if (event.keyCode === 13) {	     
 			let info = document.createElement('div');
-			var len = n1.toString().split('').length; 
+			var len = N1.toString().split('').length; 
 			if(last<len) {
 				info.innerHTML = Addition2(N1, N2, last, nom).result();
 				plit.append(info);
