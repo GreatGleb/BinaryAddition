@@ -4,6 +4,7 @@ body {
   linear-gradient(rgba(0,100,100,.5) 50%, transparent 50%);
   background-size: 50px 50px;
   overflow-x: hidden;
+  font-family: 'Roboto', sans-serif;
 }
 
 .flex > div {
@@ -33,6 +34,7 @@ body {
     border-radius: 10px;
     opacity: 0;
     text-align: right;
+    transition: left ease 0.5s;
 }
 
 .plit div {	
@@ -43,11 +45,7 @@ body {
 	display: none;
 }
 
-.items .plit {
-    transition: left ease 0.5s;
-}
-
-.items .plit_act {
+.plit_act {
 	display: block;
 	left: 0%;
 	opacity: 1;
@@ -95,3 +93,127 @@ body {
     -ms-flex-align: start;
     align-items: flex-start;
     }
+
+form {
+  position: relative;
+  z-index: 3;
+  padding-top: 4px;
+}
+
+input[type="text"] {
+  border: 1px solid #cccccc;
+  padding: 4px 5px;
+  background: white;
+  border-radius: 5px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+input[type="text"]:focus {
+  box-shadow: 0 0 5px rgba(50, 200, 255, 0.5);
+  outline: none;
+}
+
+button[type="button"]  {
+  display: block;
+  margin-top: 1em;
+  padding: 5px 15px;  
+  font-weight: bold;
+  color: #333;
+  background: white;
+  border: none;
+  border-radius: 12px;
+  background-image: linear-gradient(to bottom, #ffffff, #dddddd);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 1px 1px white;
+}
+
+.operat {
+  height: 23px;
+  width: 40px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 3px 8px 3px 7px;
+  font-weight: bold;
+  color: #fff;
+  background: #1b1b1b;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  z-index: 4;
+  transition: border-radius 0.5s ease-in-out, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.operat:hover {
+  color: #669999;
+  box-shadow: 0 0 5px rgba(50, 200, 255, 0.5);
+}
+
+.operat:hover i {
+  border: solid #669999;
+  border-width: 0 3px 3px 0;
+}
+
+.openOperat {
+  display: block;
+  border-radius: 12px 12px 0 0;
+}
+
+.listOperat {
+  display: block;
+  position: absolute;
+  right: 0px;
+  top: 18px;
+  width: 48px;
+  height: 24px;
+  background-color: #1b1b1b;
+  color: #fff;
+  bottom: -24px;
+  border-top: solid 1px #828282;
+  padding-left: 7px;
+  opacity: 0;
+  cursor: default;
+  z-index: 2;
+  transition: 0.5s ease-in-out;
+}
+
+.listOperat:hover {  
+  background-color: #5a5a5a;
+  color: #fff;
+}
+
+.listShow {
+  z-index: 5;
+  opacity: 1;
+  top: 28px;
+  cursor: pointer;
+}
+
+.operat:hover .listOperat {
+  color: #fff;
+}
+
+i {
+  border: solid #fff;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 4px;
+  margin-left: 5px;
+  transition: 0.5s ease-in-out;
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  margin-bottom: 3px;
+
+}
+
+.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+  margin-bottom: -3px;
+}
