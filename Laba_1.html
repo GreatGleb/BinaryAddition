@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="ru">
 <head>
@@ -6,18 +7,26 @@
   <meta name="description" content="The HTML5 Herald">
   <meta name="Gleb Sugak" content="SitePoint">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="Laba_1.css"/>
 </head>
 <body>
 	<div class="flex">
 	  <div class="items" tabindex="0" id="1">
-		  <form action="/action_page.php">
-			Первое число (дк): <input type="text" name="FirstName" placeholder="Введите число в дк"><br>
-			Второе число (дк): <input type="text" name="LastName" placeholder="Введите число в дк"><br>
-			 <button type='button' onclick="Count()">Посчитать</button>  
-			</form>
 	  </div>
-	  <div class="items" tabindex="0" id="2"></div>
+	  <div class="items" tabindex="0" id="2">
+	  	Сумма
+		<form action="/action_page.php">
+			Первое число (<span class="oper">ДК</span>): <input type="text" name="FirstNumber" placeholder="Введите число в ДК"><br>
+			Второе число (<span class="oper">ДК</span>): <input type="text" name="SecondNumber" placeholder="Введите число в ДК"><br>
+			<button type='button' onclick="Count()">Посчитать</button> 
+			<div class="operat" onclick="operM()">			 	
+				ДК<i class="down"></i>
+			</div>
+			<div class="listOperat">ОК</div>
+		</form>
+
+	  </div>
 	  <div class="items" tabindex="0" id="3"></div>
 	  <div class="items" tabindex="0" id="4"></div>
 	  <div class="items" tabindex="0" id="5"></div>
