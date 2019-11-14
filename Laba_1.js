@@ -194,10 +194,12 @@ function AdditionDK2 (n1, n2, i, nom) {
 
 
 function AdditionOK (n1, n2) {
-	var arr1 = n1.toString().split(''); 
-	arr1.splice(1,1);
+	var arr1 = n1.toString().split('');
+	if(arr1[1]==".") {
+	arr1.splice(1,1); }
 	var arr2 = n2.toString().split('');
-	arr2.splice(1,1);
+	if(arr2[1]==".") {
+	arr2.splice(1,1); }
 	var arr3 = [];
 	var ost = [];
 	var ost2 = [];
@@ -322,6 +324,170 @@ function AdditionOK (n1, n2) {
 		      return str;
 		    }
 		  }; 
+}
+
+
+
+function ProductionOK (n1, n2) {
+	console.log("Ehhhuuuuu!"); 
+
+    var arr1 = n1.toString().split('');  
+    arr1.splice(1,1); 
+    var arr2 = n2.toString().split(''); 
+
+    arr2.splice(1,1); 
+    var arr3 = []; 
+    var ost = []; 
+    var ost2 = []; 
+    var arr4 = []; 
+    var len1 = arr1.length; 
+    var len2 = arr2.length; 
+    var str = "<div> ОК<br>"+n1+"<br>"+n2+"<br>"; 
+
+    console.log(arr1); 
+
+    var MN = []; 
+    var MT = []; 
+    var NulSum = []; 
+    var Sum = [];
+	var origMN;
+
+    MN[0] = arr1[0]; 
+
+    for(var i = 1; i < (((arr1.length-1)*2)+2); i++) { 
+        if(i < (arr1.length+1)) { 
+            MN[i] = MN[0]; 
+        } else { 
+            MN[i] = arr1[i-(arr1.length)];		
+        } 
+    } 
+
+    for(var i = 0; i < MN.length; i++) { 
+        MN[i] = parseInt(MN[i], 10); 
+        NulSum[i] = 0; 
+    } 
+	origMN = MN;
+    for(var i = 0; i < arr2.length-1; i++) { 
+        MT[i] = parseInt(arr2[i+1], 10); 
+    }
+	
+	arr1.splice(1, 0, '.');
+	arr1 = arr1.join('');
+	
+	NulSum.splice(1, 0, '.');
+	NulSum = NulSum.join('');
+	
+	MN.splice(1, 0, '.');
+	MN = MN.join('');
+	
+	arr2.splice(1, 0, '.');
+	arr2 = arr2.join('');
+	
+	var RESULT = "<br>МН = "+arr1;
+	RESULT = RESULT+"<br>МТ = "+arr2;
+	RESULT = RESULT+"<br>Sum = "+NulSum;
+	RESULT = RESULT+"<br>МН = "+MN;
+
+	arr1 = arr1.split('');
+	arr1.splice(1,1);
+	
+	NulSum = NulSum.split('');
+	NulSum.splice(1,1);
+	
+	MN = MN.split('');
+	MN.splice(1,1);
+	
+	arr2 = arr2.split('');
+	arr2.splice(1,1);
+	
+    for(var i = 1; i < arr1.length; i++) {
+        if(i<2) { 
+            Sum = NulSum;
+			Sum = Sum.join(''); 
+			MN = MN.join('');
+        }
+
+		if(i < (arr1.length-2)) {	var comment = "&#8721 = &#8721+МН; Мн влево, МТ вправо";	}
+		else if (i == (arr1.length-2)) {	var comment = "&#8721 = &#8721+МН.";	}
+		else {	var comment = "";	}
+		RESULT = RESULT+"<br><br> Шаг  |"+"    &#8721     |"+"      МН       "+" |  МТ  | "+"  Комментарий   |"; 
+		RESULT = RESULT+"<br> "+i+" | "+Sum+" | "+MN+" | "+MT.join('')+" | "+comment+" |"; 
+		
+		if(MT[MT.length-1]>0) {
+			Sum = AdditionOK(Sum, MN).addition(); 
+			RESULT = RESULT+"<br>  + "+MN;
+			Sum = Sum.toString().split('');
+			if(Sum[1]==".") {
+			Sum.splice(1,1); }
+			
+			Sum = Sum.join('');
+		} else {
+			RESULT = RESULT+"<br>  + "+NulSum.join("");	
+		}
+		RESULT = RESULT+"<br>       _________________<br>     "+Sum;
+		
+		MN = MN.toString().split('');
+		MN.splice(0,1);
+		MN.push(arr1[0]);
+		MN = MN.join('');
+		MT.pop();
+	}
+
+	if(arr2[0]>0) {
+		MN = [];
+		
+		RESULT = RESULT+"<br><br>Коррекция<br>&#8721 = "+Sum[0]+"."+Sum.slice(1)+"<br>1)&#8721 = &#8721+(-МН)<br>2)&#8721 = &#8721+МН*2^-6";
+
+		if(arr1[0] == 1) {
+			MN[0] = 0;
+			MN.push(0);
+		} else {
+			MN[0] = 1;
+			MN.push(1);
+		}
+		
+		var ll = arr1.length;
+		ll = ll + 1;
+		
+		for(var i = 2; i < ll; i++) {
+			if(arr1[i-1]=="0") {
+				MN[i] = 1;	}
+			else {
+				MN[i] = 0;
+			}
+		}
+		
+		for(var i = 1; i < arr1.length; i++) {
+			if(arr1[0] == 1) {
+				MN.push(0);
+			} else {
+				MN.push(1);
+			}
+		}
+		
+		MN = MN.join("");
+		origMN = origMN.join("");
+		
+		RESULT = RESULT+"<br>МН = "+arr1[0]+"."+arr1.slice(1).join('');
+		RESULT = RESULT+"<br>-МН = "+MN[0]+"."+MN.slice(2, 8);
+		RESULT = RESULT+"<br>МН*2^-6 = "+origMN;
+
+		RESULT = RESULT+"<br><br>1)<br>  "+Sum[0]+"."+Sum.slice(1); 
+		RESULT = RESULT+"<br>+ "+MN[0]+"."+MN.slice(1);
+
+		Sum = AdditionOK(Sum, MN).addition();
+
+		RESULT = RESULT+"<br>    _________________<br>  "+Sum;
+		
+		RESULT = RESULT+"<br><br>2)<br>  "+Sum[0]+Sum.slice(1); 
+		RESULT = RESULT+"<br>+ "+origMN[0]+origMN.slice(1);
+
+		Sum = AdditionOK(Sum, origMN).addition();
+		
+		RESULT = RESULT+"<br>       _________________<br> &#8721 "+Sum;
+
+	}
+	return RESULT;
 }
 
 
@@ -742,19 +908,10 @@ function Count() {
 		arr.push();
 		Sobrat(1, val1, val2, "DK");
 	} else {
-		m[1].innerHTML = AdditionOK(val1, val2).result();
+		m[1].innerHTML = ProductionOK(val1, val2);
 
-		let div = document.createElement('div');
-		  	div.className = "butmath";
-		let plit = document.createElement('div');
-		  	plit.className = "plit";
-		let back = document.createElement('div');
-		  	back.className = "back";
-		m[1].append(div); m[1].append(plit);
-		m[1].getElementsByClassName("plit")[0].append(back);
 		It.push();
 		arr.push();
-		Sobrat(1, val1, val2, "OK");
 	}
 }
 
@@ -811,7 +968,4 @@ document.body.addEventListener('click',function(e) {
 			oM.getElementsByTagName("i")[0].className = "down";
 		}
 	}	
-
-	console.log(arrN)
-
 });
