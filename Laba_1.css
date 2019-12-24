@@ -192,6 +192,10 @@ button[type="button"]  {
   cursor: pointer;
 }
 
+.listpktop {
+  top: 51px;
+}
+
 .operat:hover .listOperat {
   color: #fff;
 }
@@ -216,4 +220,34 @@ i {
   transform: rotate(-135deg);
   -webkit-transform: rotate(-135deg);
   margin-bottom: -3px;
+}
+
+.space {
+	display: inline-block;
+	width: 50px;
+}
+
+.space_1 {
+	display: inline-block;
+	width: 41px;
+}
+
+.space_2 {
+	display: inline-block;
+	width: 57px;
+}
+
+.space_3 {
+	display: inline-block;
+	width: 25px;
+}
+
+.space_5 {
+	display: inline-block;
+	width: 38px;
+}
+
+.space_6 {
+	display: inline-block;
+	width: 65px;
 }
