@@ -1315,7 +1315,8 @@ function operL(event) {
 }
 
 document.body.addEventListener('click',function(e) {
-	if(e.path[0].className!="down"&&e.path[0].className!="listOperat"&&e.path[0].className!="operat openOperat"&&e.path[0].className!="operat") {
+	let path = event.path || (event.composedPath && event.composedPath());
+	if(path[0].className!="down"&&path[0].className!="listOperat"&&path[0].className!="operat openOperat"&&path[0].className!="operat") {
 		var oM = document.getElementsByClassName("operat")[0];
 		if(oM!= undefined&&oM.className != "operat") {
 			document.getElementsByClassName("items")[1].getElementsByTagName("div")[1].className = "listOperat";
