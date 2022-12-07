@@ -1127,7 +1127,6 @@ function PressDK (event) {
 	el = It[nom][It[nom].length - 1];
 	arr[nom].push(el);
 	var last = arr[nom][arr[nom].length-1];
-	let path = event.path || (event.composedPath && event.composedPath());
 	var plit = path[0].getElementsByClassName("plit")[0];
 	  if(getComputedStyle(plit.getElementsByClassName("back")[0], null).display != 'none') {
 
