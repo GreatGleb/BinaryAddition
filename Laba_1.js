@@ -1110,7 +1110,8 @@ function modifyOperation() {
 }
 
 function PressDK (event) {
-	var nom = event.path[0].id;
+	let path = event.path || (event.composedPath && event.composedPath());
+	var nom = path[0].id;
 	nom--;
 	var N1, N2;
 	N1 = arrN[nom][0];
@@ -1126,7 +1127,8 @@ function PressDK (event) {
 	el = It[nom][It[nom].length - 1];
 	arr[nom].push(el);
 	var last = arr[nom][arr[nom].length-1];
-	var plit = event.path[0].getElementsByClassName("plit")[0];
+	let path = event.path || (event.composedPath && event.composedPath());
+	var plit = path[0].getElementsByClassName("plit")[0];
 	  if(getComputedStyle(plit.getElementsByClassName("back")[0], null).display != 'none') {
 
 		  if (event.keyCode === 13) {	     
@@ -1148,7 +1150,8 @@ function FocusDK(n1, n2) {
 }
 
 function PressOK (event) {
-	var nom = event.path[0].id;
+	let path = event.path || (event.composedPath && event.composedPath());
+	var nom = path[0].id;
 	nom--;
 	var N1, N2;
 	N1 = arrN[nom][0];
@@ -1164,7 +1167,7 @@ function PressOK (event) {
 	el = It[nom][It[nom].length - 1];
 	arr[nom].push(el);
 	var last = arr[nom][arr[nom].length-1];
-	var plit = event.path[0].getElementsByClassName("plit")[0];
+	var plit = path[0].getElementsByClassName("plit")[0];
 	  if(getComputedStyle(plit.getElementsByClassName("back")[0], null).display != 'none') {
 
 		  if (event.keyCode === 13) {	     
@@ -1285,7 +1288,8 @@ function operL(event) {
 		oM.className = "operat";
 		oM.getElementsByTagName("i")[0].className = " up";
 	}
-	if(event.path[0].textContent=="ОК") {
+	let path = event.path || (event.composedPath && event.composedPath());
+	if(path[0].textContent=="ОК") {
 		oM.innerHTML = 'ОК<i class="down"></i>';
 		document.getElementsByClassName("oper")[0].innerHTML = "ОК";
 		document.getElementsByClassName("oper")[1].innerHTML = "ОК";
@@ -1293,7 +1297,7 @@ function operL(event) {
 		document.getElementsByName('SecondNumber')[0].placeholder='Введите число в ОК';
 		document.getElementsByClassName("items")[1].getElementsByTagName("div")[1].innerHTML = "ДК";
 		document.getElementsByClassName("items")[1].getElementsByTagName("div")[2].innerHTML = "ПК";
-	} else if(event.path[0].textContent=="ДК") {		
+	} else if(path[0].textContent=="ДК") {		
 		oM.innerHTML = 'ДК<i class="down"></i>';
 		document.getElementsByClassName("oper")[0].innerHTML = "ДК";
 		document.getElementsByClassName("oper")[1].innerHTML = "ДК";
